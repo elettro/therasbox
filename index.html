@@ -94,32 +94,30 @@
       gap: 18px;
     }
 
-    .brand-mark {
-      display: flex;
+    .rasbox-logo {
+      display: inline-flex;
       align-items: center;
-      gap: 12px;
-      font-weight: 900;
-      letter-spacing: -0.04em;
-      text-transform: uppercase;
+      flex-shrink: 0;
     }
 
-    .brand-logo {
-      display: block;
-      width: 100%;
-      max-width: 170px;
-      height: 34px;
-      max-height: 34px;
-      object-fit: contain;
-      object-position: center;
+    .rasbox-logo img{
+      height:48px;
+      width:auto;
+      display:block;
+      object-fit:contain;
     }
 
-    .footer-logo {
-      display: block;
-      width: 100%;
-      max-width: 160px;
-      height: auto;
-      object-fit: contain;
+    .footer-rasbox-logo {
+      display: inline-flex;
+      align-items: center;
       margin-bottom: 10px;
+    }
+
+    .footer-rasbox-logo img{
+      height:58px;
+      width:auto;
+      display:block;
+      object-fit:contain;
     }
 
     .nav-links {
@@ -599,9 +597,6 @@
         padding: 12px 16px;
       }
 
-      .brand-mark span {
-        font-size: 14px;
-      }
 
       .nav-cta {
         padding: 11px 13px;
@@ -637,8 +632,8 @@
 
     <header class="topbar">
       <nav class="nav" aria-label="Primary navigation">
-        <a class="brand-mark" href="#top" aria-label="The Ras Box home">
-          <img class="brand-logo" src="images/therasboxlogo-1.png" alt="The Ras Box logo">
+        <a href="/" class="rasbox-logo">
+          <img src="/images/therasboxlogo-1.png" alt="The Ras Box">
         </a>
         <div class="nav-links">
           <a href="#videos">Videos</a>
@@ -874,7 +869,9 @@
     <footer class="footer">
       <div class="footer-inner">
         <div>
-          <img class="footer-logo" src="images/therasboxlogo-1.png" alt="The Ras Box logo">
+          <a href="/" class="footer-rasbox-logo">
+            <img src="/images/therasboxlogo-1.png" alt="The Ras Box">
+          </a>
           <strong>The Ras Box</strong><br>
           Weed rap, reggae, rock, country, comedy, satire, and high vibes.
         </div>
