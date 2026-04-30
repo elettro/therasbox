@@ -492,23 +492,54 @@
 
     .merch-products {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-      gap: 20px;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 22px;
       align-items: stretch;
     }
 
     .merch-link-card {
-      border-radius: 16px;
+      border-radius: 18px;
       border: 1px solid var(--border);
       background:
-        linear-gradient(180deg, rgba(255, 255, 255, 0.11), rgba(255, 255, 255, 0.04)),
-        radial-gradient(circle at top right, rgba(184, 255, 56, 0.16), transparent 42%);
-      padding: 20px;
+        linear-gradient(180deg, rgba(255, 255, 255, 0.12), rgba(255, 255, 255, 0.05)),
+        radial-gradient(circle at top right, rgba(184, 255, 56, 0.14), transparent 46%);
+      padding: 14px;
       display: flex;
       flex-direction: column;
-      justify-content: space-between;
       gap: 14px;
       min-height: 100%;
+      box-shadow: 0 18px 48px rgba(0, 0, 0, 0.26);
+      transition: transform .2s ease, box-shadow .2s ease;
+    }
+
+    .merch-link-card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 26px 62px rgba(0, 0, 0, 0.34);
+    }
+
+    .merch-product-image {
+      display: block;
+      border-radius: 14px;
+      overflow: hidden;
+      background: rgba(255, 255, 255, 0.05);
+      border: 1px solid rgba(255, 255, 255, 0.18);
+    }
+
+    .merch-product-image img {
+      width: 100%;
+      aspect-ratio: 1 / 1;
+      object-fit: cover;
+      display: block;
+      transition: transform .25s ease;
+    }
+
+    .merch-product-image:hover img {
+      transform: scale(1.03);
+    }
+
+    .merch-link-card h3 {
+      font-size: clamp(24px, 3vw, 30px);
+      line-height: 1.03;
     }
 
     .footer {
@@ -782,49 +813,51 @@
 
         <div class="shop-wrap">
           <div class="merch-products">
-            <div id='collection-component-1751725735078'></div>
             <article class="merch-link-card">
-              <div>
-                <p class="kicker">Featured Product</p>
-                <h3>Subscribe To YouTube Channel Stashboxband Unisex T-Shirt</h3>
-                <p class="lead">Shop this Stashbox.ai featured shirt and support the channel.</p>
-              </div>
+              <a class="merch-product-image" href="https://stashbox.ai/products/stashbox-josh-subscribe-to-youtube-channel-stashboxband-unisex-tshirt-1" target="_blank" rel="noopener" aria-label="View Stashbox Josh Subscribe to Youtube Channel @Stashboxband Unisex Tshirt">
+                <img src="https://stashbox.ai/cdn/shop/files/789243085779304815_2048.jpg?v=1763738268&width=1946" alt="Stashbox Josh Subscribe to Youtube Channel @Stashboxband Unisex Tshirt" loading="lazy" />
+              </a>
+              <h3>Stashbox - Josh - Subscribe to Youtube Channel @Stashboxband Unisex Tshirt</h3>
               <a class="btn" href="https://stashbox.ai/products/stashbox-josh-subscribe-to-youtube-channel-stashboxband-unisex-tshirt-1" target="_blank" rel="noopener">View Product</a>
             </article>
 
             <article class="merch-link-card">
-              <div>
-                <p class="kicker">Featured Product</p>
-                <h3>Don't F*** With The Pope T-Shirt O.G. Gangster Graphic Tee</h3>
-                <p class="lead">Add this bold graphic tee to your stash from Stashbox.ai.</p>
-              </div>
+              <a class="merch-product-image" href="https://stashbox.ai/products/apples-and-bananas-tshirt-the-ras-box" target="_blank" rel="noopener" aria-label="View Apples and Bananas Tshirt The Ras Box">
+                <img src="https://stashbox.ai/cdn/shop/files/11291483495123301114_2048.jpg?v=1751725495&width=1946" alt="Apples and Bananas Tshirt The Ras Box" loading="lazy" />
+              </a>
+              <h3>Apples and Bananas Tshirt The Ras Box</h3>
+              <a class="btn" href="https://stashbox.ai/products/apples-and-bananas-tshirt-the-ras-box" target="_blank" rel="noopener">View Product</a>
+            </article>
+
+            <article class="merch-link-card">
+              <a class="merch-product-image" href="https://stashbox.ai/products/don-t-f-with-the-pope-t-shirt-o-g-gangster-graphic-tee" target="_blank" rel="noopener" aria-label="View Don't F*** With The Pope T-Shirt O.G. Gangster Graphic Tee">
+                <img src="https://stashbox.ai/cdn/shop/files/4521812369367044212_2048.jpg?v=1776100656&width=1946" alt="Don't F*** With The Pope T-Shirt O.G. Gangster Graphic Tee" loading="lazy" />
+              </a>
+              <h3>Don’t F*** With The Pope T-Shirt — O.G. Gangster Graphic Tee</h3>
               <a class="btn" href="https://stashbox.ai/products/don-t-f-with-the-pope-t-shirt-o-g-gangster-graphic-tee" target="_blank" rel="noopener">View Product</a>
             </article>
 
             <article class="merch-link-card">
-              <div>
-                <p class="kicker">Featured Product</p>
-                <h3>Don't F*** With The Pope T-Shirt O.G. Gangster Graphic Tee 02</h3>
-                <p class="lead">Grab the alternate version of this O.G. gangster graphic tee.</p>
-              </div>
+              <a class="merch-product-image" href="https://stashbox.ai/products/don-t-f-with-the-pope-t-shirt-o-g-gangster-graphic-tee-02" target="_blank" rel="noopener" aria-label="View Don't F*** With The Pope T-Shirt O.G. Gangster Graphic Tee 02">
+                <img src="https://stashbox.ai/cdn/shop/files/9565464804194767873_2048.jpg?v=1776102928&width=1946" alt="Don't F*** With The Pope T-Shirt O.G. Gangster Graphic Tee 02" loading="lazy" />
+              </a>
+              <h3>Don’t F*** With The Pope T-Shirt — O.G. Gangster Graphic Tee 02</h3>
               <a class="btn" href="https://stashbox.ai/products/don-t-f-with-the-pope-t-shirt-o-g-gangster-graphic-tee-02" target="_blank" rel="noopener">View Product</a>
             </article>
 
             <article class="merch-link-card">
-              <div>
-                <p class="kicker">Featured Product</p>
-                <h3>Unisex Heavy Cotton T-Shirt Girl Guitarist Rocking 013</h3>
-                <p class="lead">Rock-forward unisex heavy cotton tee from the Shopify merch lineup.</p>
-              </div>
+              <a class="merch-product-image" href="https://stashbox.ai/products/unisex-heavy-cotton-t-shirt-girl-guitarist-rocking-013" target="_blank" rel="noopener" aria-label="View Unisex Heavy Cotton T-Shirt Girl Guitarist Rocking 013">
+                <img src="https://stashbox.ai/cdn/shop/files/3778130364204122445_2048.jpg?v=1744936418&width=1946" alt="Unisex Heavy Cotton T-Shirt Girl Guitarist Rocking 013" loading="lazy" />
+              </a>
+              <h3>Unisex Heavy Cotton T-Shirt Girl Guitarist Rocking 013</h3>
               <a class="btn" href="https://stashbox.ai/products/unisex-heavy-cotton-t-shirt-girl-guitarist-rocking-013" target="_blank" rel="noopener">View Product</a>
             </article>
 
             <article class="merch-link-card">
-              <div>
-                <p class="kicker">Featured Product</p>
-                <h3>Heavy Cotton T-Shirt Stacked Buildings Palm Trees Giant Sun 001</h3>
-                <p class="lead">Shop this heavy cotton design with stacked buildings and giant sun art.</p>
-              </div>
+              <a class="merch-product-image" href="https://stashbox.ai/products/heavy-cotton-tshirt-stacked-buildings-palm-trees-giant-sun-001" target="_blank" rel="noopener" aria-label="View Heavy Cotton Tshirt Stacked Buildings Palm Trees Giant Sun 001">
+                <img src="https://stashbox.ai/cdn/shop/files/2085893362969280684_2048.jpg?v=1729784305&width=1946" alt="Heavy Cotton Tshirt Stacked Buildings Palm Trees Giant Sun 001" loading="lazy" />
+              </a>
+              <h3>Favella Art Heavy Cotton Tshirt Stacked Buildings Palm Trees Giant Sun</h3>
               <a class="btn" href="https://stashbox.ai/products/heavy-cotton-tshirt-stacked-buildings-palm-trees-giant-sun-001" target="_blank" rel="noopener">View Product</a>
             </article>
           </div>
@@ -848,138 +881,5 @@
     </footer>
   </div>
 
-  <script type="text/javascript">
-    (function () {
-      var scriptURL = 'https://sdks.shopifycdn.com/buy-button/latest/buy-button-storefront.min.js';
-      if (window.ShopifyBuy) {
-        if (window.ShopifyBuy.UI) {
-          ShopifyBuyInit();
-        } else {
-          loadScript();
-        }
-      } else {
-        loadScript();
-      }
-      function loadScript() {
-        var script = document.createElement('script');
-        script.async = true;
-        script.src = scriptURL;
-        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(script);
-        script.onload = ShopifyBuyInit;
-      }
-      function ShopifyBuyInit() {
-        var client = ShopifyBuy.buildClient({
-          domain: 'f3ea38-3.myshopify.com',
-          storefrontAccessToken: '047c22073bcf2010ec26f3907478d557',
-        });
-        ShopifyBuy.UI.onReady(client).then(function (ui) {
-          ui.createComponent('collection', {
-            id: '501150548263',
-            node: document.getElementById('collection-component-1751725735078'),
-            moneyFormat: '%24%7B%7Bamount%7D%7D',
-            options: {
-              "product": {
-                "styles": {
-                  "product": {
-                    "@media (min-width: 601px)": {
-                      "max-width": "calc(25% - 20px)",
-                      "margin-left": "20px",
-                      "margin-bottom": "50px",
-                      "width": "calc(25% - 20px)"
-                    }
-                  },
-                  "button": {
-                    "font-size": "17px",
-                    "padding-top": "16.5px",
-                    "padding-bottom": "16.5px",
-                    "border-radius": "16px",
-                    "padding-left": "87px",
-                    "padding-right": "87px"
-                  },
-                  "quantityInput": {
-                    "font-size": "17px",
-                    "padding-top": "16.5px",
-                    "padding-bottom": "16.5px"
-                  }
-                },
-                "buttonDestination": "modal",
-                "contents": {
-                  "options": false
-                },
-                "width": "580px",
-                "text": {
-                  "button": "View product"
-                }
-              },
-              "productSet": {
-                "styles": {
-                  "products": {
-                    "@media (min-width: 601px)": {
-                      "margin-left": "-20px"
-                    }
-                  }
-                }
-              },
-              "modalProduct": {
-                "contents": {
-                  "img": false,
-                  "imgWithCarousel": true,
-                  "button": false,
-                  "buttonWithQuantity": true
-                },
-                "styles": {
-                  "product": {
-                    "@media (min-width: 601px)": {
-                      "max-width": "100%",
-                      "margin-left": "0px",
-                      "margin-bottom": "0px"
-                    }
-                  },
-                  "button": {
-                    "font-size": "17px",
-                    "padding-top": "16.5px",
-                    "padding-bottom": "16.5px",
-                    "border-radius": "16px",
-                    "padding-left": "87px",
-                    "padding-right": "87px"
-                  },
-                  "quantityInput": {
-                    "font-size": "17px",
-                    "padding-top": "16.5px",
-                    "padding-bottom": "16.5px"
-                  }
-                },
-                "text": {
-                  "button": "Add to cart"
-                }
-              },
-              "option": {},
-              "cart": {
-                "styles": {
-                  "button": {
-                    "font-size": "17px",
-                    "padding-top": "16.5px",
-                    "padding-bottom": "16.5px",
-                    "border-radius": "16px"
-                  }
-                },
-                "text": {
-                  "total": "Subtotal",
-                  "button": "Checkout"
-                }
-              },
-              "toggle": {
-                "styles": {
-                  "count": {
-                    "font-size": "17px"
-                  }
-                }
-              }
-            },
-          });
-        });
-      }
-    })();
-  </script>
 </body>
 </html>
