@@ -103,16 +103,20 @@
       text-transform: uppercase;
     }
 
-    .brand-icon {
-      width: 42px;
-      height: 42px;
-      border-radius: 14px;
-      background: linear-gradient(135deg, var(--acid), var(--green), var(--gold));
-      color: #071007;
-      display: grid;
-      place-items: center;
-      font-family: Anton, sans-serif;
-      box-shadow: 0 0 32px rgba(184, 255, 56, 0.45);
+    .brand-logo {
+      display: block;
+      width: auto;
+      max-height: 42px;
+      object-fit: contain;
+    }
+
+    .footer-logo {
+      display: block;
+      width: 100%;
+      max-width: 180px;
+      height: auto;
+      object-fit: contain;
+      margin-bottom: 10px;
     }
 
     .nav-links {
@@ -631,7 +635,7 @@
     <header class="topbar">
       <nav class="nav" aria-label="Primary navigation">
         <a class="brand-mark" href="#top" aria-label="The Ras Box home">
-          <span class="brand-icon">RB</span>
+          <img class="brand-logo" src="images/therasboxlogo-1.png" alt="The Ras Box logo">
           <span>The Ras Box</span>
         </a>
         <div class="nav-links">
@@ -868,6 +872,7 @@
     <footer class="footer">
       <div class="footer-inner">
         <div>
+          <img class="footer-logo" src="images/therasboxlogo-1.png" alt="The Ras Box logo">
           <strong>The Ras Box</strong><br>
           Weed rap, reggae, rock, country, comedy, satire, and high vibes.
         </div>
