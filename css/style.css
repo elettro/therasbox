@@ -854,3 +854,110 @@
     flex-direction: column;
   }
 }
+
+.trb-stashbox-carousel-stage {
+  position: relative;
+  margin-top: 18px;
+}
+
+.trb-stashbox-carousel {
+  scroll-behavior: smooth;
+  -webkit-overflow-scrolling: touch;
+  overscroll-behavior-x: contain;
+  touch-action: pan-x;
+  cursor: grab;
+  padding-inline: 10px;
+  scrollbar-width: none;
+}
+
+.trb-stashbox-carousel:active {
+  cursor: grabbing;
+}
+
+.trb-stashbox-carousel::-webkit-scrollbar {
+  display: none;
+}
+
+.trb-stashbox-edge-arrow {
+  position: absolute;
+  top: 50%;
+  z-index: 8;
+  width: 54px;
+  height: 54px;
+  border-radius: 999px;
+  border: 1px solid rgba(184, 255, 56, 0.55);
+  background:
+    radial-gradient(circle at top, rgba(184, 255, 56, 0.22), transparent 55%),
+    rgba(5, 8, 5, 0.82);
+  color: var(--acid);
+  box-shadow: 0 18px 45px rgba(0, 0, 0, 0.45);
+  backdrop-filter: blur(18px);
+  font-size: 42px;
+  line-height: 1;
+  font-weight: 900;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  transform: translateY(-50%);
+  cursor: pointer;
+  transition: transform .22s ease, background .22s ease, color .22s ease, border-color .22s ease;
+}
+
+.trb-stashbox-edge-arrow:hover,
+.trb-stashbox-edge-arrow:focus {
+  background: linear-gradient(135deg, var(--acid), var(--green));
+  color: #061006;
+  border-color: rgba(184, 255, 56, 0.9);
+  transform: translateY(-50%) scale(1.05);
+  outline: none;
+}
+
+.trb-stashbox-edge-arrow-left {
+  left: -18px;
+}
+
+.trb-stashbox-edge-arrow-right {
+  right: -18px;
+}
+
+@media (max-width: 980px) {
+  .trb-stashbox-edge-arrow {
+    width: 48px;
+    height: 48px;
+    font-size: 36px;
+  }
+
+  .trb-stashbox-edge-arrow-left {
+    left: -8px;
+  }
+
+  .trb-stashbox-edge-arrow-right {
+    right: -8px;
+  }
+}
+
+@media (max-width: 620px) {
+  .trb-stashbox-carousel-stage {
+    margin-inline: -16px;
+  }
+
+  .trb-stashbox-carousel {
+    padding-inline: 16px;
+    scroll-snap-type: x mandatory;
+  }
+
+  .trb-stashbox-edge-arrow {
+    width: 42px;
+    height: 42px;
+    font-size: 32px;
+    opacity: .92;
+  }
+
+  .trb-stashbox-edge-arrow-left {
+    left: 6px;
+  }
+
+  .trb-stashbox-edge-arrow-right {
+    right: 6px;
+  }
+}

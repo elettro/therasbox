@@ -186,7 +186,9 @@
 
   <div class="trb-stashbox-carousel-shell">
     <div class="trb-stashbox-carousel-label"><span>Stashbox Song Carousel</span><span class="trb-stashbox-scroll-note">Scroll sideways to browse songs</span></div>
-    <div class="trb-stashbox-carousel" aria-label="Stashbox song carousel">
+    <div class="trb-stashbox-carousel-stage">
+      <button class="trb-stashbox-edge-arrow trb-stashbox-edge-arrow-left" type="button" data-stashbox-prev aria-label="Previous Stashbox songs">‹</button>
+      <div class="trb-stashbox-carousel" data-stashbox-carousel aria-label="Stashbox song carousel">
       <article class="trb-stashbox-card"><div><span>2026 Single</span><h3>Easy To Love</h3><p>Warm reggae-rock energy with a bright, playlist-friendly hook.</p></div><a href="https://www.youtube.com/watch?v=uGehDu58A3M&list=OLAK5uy_k7DVNB1LrAcCJqsSIV4iRhARp8r2TRJzo" target="_blank" rel="noopener">Listen</a></article>
       <article class="trb-stashbox-card"><div><span>2026 Single</span><h3>Bam Bam</h3><p>Reggae rhythm, bold performance feel, and strong Stashbox movement.</p></div><a href="https://www.youtube.com/watch?v=NANDySvDPk0&list=OLAK5uy_kHQXbe0H4u2kfaSkkw4S8p8O5S9skuQjs" target="_blank" rel="noopener">Listen</a></article>
       <article class="trb-stashbox-card"><div><span>2026 Single</span><h3>I Know You Rider</h3><p>A roots-driven song shaped through the Stashbox reggae-rock lens.</p></div><a href="https://www.youtube.com/watch?v=OiaMT41PsMw&list=OLAK5uy_msHS_rxRQsJnYT8frlh7_qqu-ymSPLhME" target="_blank" rel="noopener">Listen</a></article>
@@ -264,6 +266,8 @@
         <img class="trb-stashbox-art" src="images/stashbox/stashbox-default.jpg" alt="Stashbox Heaven song artwork" loading="lazy">
         <div class="trb-stashbox-card-body"><span>Single</span><h3>Heaven</h3><p>Stashbox reggae, rock, funk, and live-band energy.</p><a href="https://www.youtube.com/watch?v=F_OYzFkKJ1A" target="_blank" rel="noopener">Listen</a></div>
       </article>
+      </div>
+      <button class="trb-stashbox-edge-arrow trb-stashbox-edge-arrow-right" type="button" data-stashbox-next aria-label="Next Stashbox songs">›</button>
     </div>
   </div>
 </section>
@@ -406,6 +410,171 @@
       </div>
     </footer>
   </div>
+
+<script>
+  (function () {
+    const carousel = document.querySelector('[data-stashbox-carousel]');
+    if (!carousel) return;
+
+    const nextButton = document.querySelector('[data-stashbox-next]');
+    const prevButton = document.querySelector('[data-stashbox-prev]');
+
+    let autoTimer = null;
+    let resumeTimer = null;
+    let isPaused = false;
+    let isPointerDown = false;
+    let startX = 0;
+    let startScrollLeft = 0;
+
+    function shuffleCards() {
+      const cards = Array.from(carousel.querySelectorAll('.trb-stashbox-card'));
+      if (cards.length < 2) return;
+
+      for (let i = cards.length - 1; i > 0; i -= 1) {
+        const j = Math.floor(Math.random() * (i + 1));
+        [cards[i], cards[j]] = [cards[j], cards[i]];
+      }
+
+      cards.forEach(function (card) {
+        carousel.appendChild(card);
+      });
+
+      carousel.scrollTo({ left: 0, behavior: 'auto' });
+    }
+
+    function getStep() {
+      const card = carousel.querySelector('.trb-stashbox-card');
+      if (!card) return Math.max(280, Math.round(carousel.clientWidth * 0.8));
+
+      const style = window.getComputedStyle(carousel);
+      const gap = parseFloat(style.columnGap || style.gap || 20);
+      return card.getBoundingClientRect().width + gap;
+    }
+
+    function scrollNext() {
+      const step = getStep();
+      const maxScroll = carousel.scrollWidth - carousel.clientWidth;
+      const nearEnd = carousel.scrollLeft + step >= maxScroll - 8;
+
+      if (nearEnd) {
+        carousel.scrollTo({ left: 0, behavior: 'smooth' });
+      } else {
+        carousel.scrollBy({ left: step, behavior: 'smooth' });
+      }
+    }
+
+    function scrollPrev() {
+      const step = getStep();
+
+      if (carousel.scrollLeft <= 8) {
+        carousel.scrollTo({ left: carousel.scrollWidth, behavior: 'smooth' });
+      } else {
+        carousel.scrollBy({ left: -step, behavior: 'smooth' });
+      }
+    }
+
+    function startAutoRotate() {
+      stopAutoRotate();
+      autoTimer = window.setInterval(function () {
+        if (!isPaused && !isPointerDown) scrollNext();
+      }, 3600);
+    }
+
+    function stopAutoRotate() {
+      if (autoTimer) {
+        window.clearInterval(autoTimer);
+        autoTimer = null;
+      }
+    }
+
+    function pauseAutoRotate() {
+      isPaused = true;
+      if (resumeTimer) window.clearTimeout(resumeTimer);
+    }
+
+    function resumeAutoRotate(delay) {
+      if (resumeTimer) window.clearTimeout(resumeTimer);
+      resumeTimer = window.setTimeout(function () {
+        isPaused = false;
+      }, delay || 1800);
+    }
+
+    function handlePointerDown(event) {
+      isPointerDown = true;
+      pauseAutoRotate();
+      startX = event.clientX || 0;
+      startScrollLeft = carousel.scrollLeft;
+      carousel.setPointerCapture?.(event.pointerId);
+    }
+
+    function handlePointerMove(event) {
+      if (!isPointerDown) return;
+      const currentX = event.clientX || 0;
+      const walk = startX - currentX;
+      carousel.scrollLeft = startScrollLeft + walk;
+    }
+
+    function handlePointerUp(event) {
+      if (!isPointerDown) return;
+      isPointerDown = false;
+      carousel.releasePointerCapture?.(event.pointerId);
+      resumeAutoRotate(2400);
+    }
+
+    shuffleCards();
+
+    if (nextButton) {
+      nextButton.addEventListener('click', function () {
+        pauseAutoRotate();
+        scrollNext();
+        resumeAutoRotate(2600);
+      });
+    }
+
+    if (prevButton) {
+      prevButton.addEventListener('click', function () {
+        pauseAutoRotate();
+        scrollPrev();
+        resumeAutoRotate(2600);
+      });
+    }
+
+    carousel.addEventListener('pointerdown', handlePointerDown);
+    carousel.addEventListener('pointermove', handlePointerMove);
+    carousel.addEventListener('pointerup', handlePointerUp);
+    carousel.addEventListener('pointercancel', handlePointerUp);
+    carousel.addEventListener('pointerleave', handlePointerUp);
+
+    carousel.addEventListener('mouseenter', pauseAutoRotate);
+    carousel.addEventListener('mouseleave', function () {
+      resumeAutoRotate(1000);
+    });
+
+    carousel.addEventListener('touchstart', pauseAutoRotate, { passive: true });
+    carousel.addEventListener('touchend', function () {
+      resumeAutoRotate(2200);
+    }, { passive: true });
+
+    carousel.addEventListener('focusin', pauseAutoRotate);
+    carousel.addEventListener('focusout', function () {
+      resumeAutoRotate(1000);
+    });
+
+    carousel.addEventListener('scroll', function () {
+      pauseAutoRotate();
+      resumeAutoRotate(2000);
+    }, { passive: true });
+
+    window.addEventListener('resize', function () {
+      carousel.scrollTo({ left: carousel.scrollLeft, behavior: 'auto' });
+    });
+
+    const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    if (!prefersReducedMotion) {
+      startAutoRotate();
+    }
+  })();
+</script>
 
 </body>
 </html>
