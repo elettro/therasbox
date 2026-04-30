@@ -490,6 +490,27 @@
       box-shadow: var(--shadow);
     }
 
+    .merch-products {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 20px;
+      align-items: stretch;
+    }
+
+    .merch-link-card {
+      border-radius: 16px;
+      border: 1px solid var(--border);
+      background:
+        linear-gradient(180deg, rgba(255, 255, 255, 0.11), rgba(255, 255, 255, 0.04)),
+        radial-gradient(circle at top right, rgba(184, 255, 56, 0.16), transparent 42%);
+      padding: 20px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      gap: 14px;
+      min-height: 100%;
+    }
+
     .footer {
       position: relative;
       z-index: 2;
@@ -523,6 +544,10 @@
       }
 
       .video-grid, .blog-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .merch-products {
         grid-template-columns: 1fr;
       }
 
@@ -752,7 +777,17 @@
         </div>
 
         <div class="shop-wrap">
-          <div id='collection-component-1751725735078'></div>
+          <div class="merch-products">
+            <div id='collection-component-1751725735078'></div>
+            <article class="merch-link-card">
+              <div>
+                <p class="kicker">Featured Product</p>
+                <h3>Subscribe To YouTube Channel Stashboxband Unisex T-Shirt</h3>
+                <p class="lead">Shop this Stashbox.ai featured shirt and support the channel.</p>
+              </div>
+              <a class="btn" href="https://stashbox.ai/products/stashbox-josh-subscribe-to-youtube-channel-stashboxband-unisex-tshirt-1" target="_blank" rel="noopener">View Product</a>
+            </article>
+          </div>
         </div>
       </section>
     </main>
