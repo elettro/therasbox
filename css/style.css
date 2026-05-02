@@ -961,3 +961,176 @@
     right: 6px;
   }
 }
+
+.trb-stashbox-book-strip {
+  position: relative;
+  isolation: isolate;
+  display: grid;
+  grid-template-columns: 1fr auto;
+  align-items: center;
+  gap: 24px;
+  margin: 30px 0 34px;
+  padding: 28px;
+  border: 1px solid rgba(184, 255, 56, 0.28);
+  border-radius: var(--radius);
+  background:
+    radial-gradient(circle at 12% 20%, rgba(184, 255, 56, 0.20), transparent 34%),
+    radial-gradient(circle at 88% 35%, rgba(255, 200, 87, 0.16), transparent 32%),
+    linear-gradient(135deg, rgba(255, 255, 255, 0.13), rgba(255, 255, 255, 0.045));
+  box-shadow: var(--shadow);
+  overflow: hidden;
+  backdrop-filter: blur(18px);
+}
+
+.trb-stashbox-book-strip::before {
+  content: "";
+  position: absolute;
+  inset: -40%;
+  z-index: -2;
+  background:
+    conic-gradient(
+      from 180deg,
+      rgba(184, 255, 56, 0.0),
+      rgba(184, 255, 56, 0.24),
+      rgba(44, 255, 122, 0.18),
+      rgba(255, 200, 87, 0.20),
+      rgba(184, 255, 56, 0.0)
+    );
+  filter: blur(34px);
+  opacity: .75;
+  animation: trbAuroraTrailHaze 9s linear infinite;
+}
+
+.trb-stashbox-book-strip::after {
+  content: "";
+  position: absolute;
+  inset: 1px;
+  z-index: -1;
+  border-radius: calc(var(--radius) - 1px);
+  background:
+    linear-gradient(135deg, rgba(7, 9, 7, 0.86), rgba(16, 23, 15, 0.78)),
+    radial-gradient(circle at top right, rgba(184, 255, 56, 0.12), transparent 42%);
+}
+
+.trb-stashbox-book-copy h3 {
+  font-size: clamp(38px, 5vw, 72px);
+  margin-bottom: 10px;
+}
+
+.trb-stashbox-book-copy p:not(.kicker) {
+  color: var(--muted);
+  font-size: 17px;
+  line-height: 1.6;
+  max-width: 720px;
+}
+
+.trb-aurora-trail-btn {
+  position: relative;
+  isolation: isolate;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 245px;
+  min-height: 62px;
+  padding: 18px 26px;
+  border-radius: 999px;
+  border: 1px solid rgba(184, 255, 56, 0.68);
+  color: #061006;
+  background: linear-gradient(135deg, var(--acid), var(--green));
+  box-shadow:
+    0 0 0 1px rgba(255, 255, 255, 0.16) inset,
+    0 18px 45px rgba(184, 255, 56, 0.24),
+    0 0 70px rgba(44, 255, 122, 0.18);
+  overflow: hidden;
+  transform: translateZ(0);
+  transition: transform .24s ease, box-shadow .24s ease, border-color .24s ease;
+}
+
+.trb-aurora-trail-btn::before {
+  content: "";
+  position: absolute;
+  inset: -90%;
+  z-index: -2;
+  background:
+    conic-gradient(
+      from 0deg,
+      rgba(184, 255, 56, 0.0),
+      rgba(184, 255, 56, 0.95),
+      rgba(44, 255, 122, 0.85),
+      rgba(255, 200, 87, 0.95),
+      rgba(184, 255, 56, 0.0)
+    );
+  filter: blur(18px);
+  opacity: .9;
+  animation: trbAuroraTrailSpin 4.5s linear infinite;
+}
+
+.trb-aurora-trail-btn::after {
+  content: "";
+  position: absolute;
+  inset: 3px;
+  z-index: -1;
+  border-radius: inherit;
+  background:
+    linear-gradient(135deg, rgba(184, 255, 56, 0.96), rgba(44, 255, 122, 0.92)),
+    radial-gradient(circle at top left, rgba(255, 255, 255, 0.42), transparent 36%);
+}
+
+.trb-aurora-trail-btn span {
+  position: relative;
+  z-index: 1;
+  font-size: 14px;
+  font-weight: 1000;
+  letter-spacing: .11em;
+  text-transform: uppercase;
+  white-space: nowrap;
+}
+
+.trb-aurora-trail-btn:hover,
+.trb-aurora-trail-btn:focus {
+  transform: translateY(-3px) scale(1.02);
+  border-color: rgba(255, 255, 255, 0.72);
+  box-shadow:
+    0 0 0 1px rgba(255, 255, 255, 0.22) inset,
+    0 24px 60px rgba(184, 255, 56, 0.35),
+    0 0 92px rgba(44, 255, 122, 0.28);
+  outline: none;
+}
+
+@keyframes trbAuroraTrailSpin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes trbAuroraTrailHaze {
+  0% {
+    transform: translate3d(-4%, -2%, 0) rotate(0deg) scale(1);
+  }
+  50% {
+    transform: translate3d(4%, 2%, 0) rotate(180deg) scale(1.08);
+  }
+  100% {
+    transform: translate3d(-4%, -2%, 0) rotate(360deg) scale(1);
+  }
+}
+
+@media (max-width: 760px) {
+  .trb-stashbox-book-strip {
+    grid-template-columns: 1fr;
+    padding: 24px;
+    text-align: left;
+  }
+
+  .trb-aurora-trail-btn {
+    width: 100%;
+    min-width: 0;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .trb-stashbox-book-strip::before,
+  .trb-aurora-trail-btn::before {
+    animation: none;
+  }
+}
