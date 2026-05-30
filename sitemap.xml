@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+        xmlns:image="http://www.google.com/schemas/sitemap-image/1.1"
+        xmlns:video="http://www.google.com/schemas/sitemap-video/1.1">
+
+  <url>
+    <loc>https://therasbox.com/</loc>
+    <lastmod>2026-05-30</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>1.0</priority>
+    <image:image>
+      <image:loc>https://therasbox.com/images/1-TheRasBoxLogo-1.png</image:loc>
+      <image:title>The Ras Box Logo</image:title>
+      <image:caption>The Ras Box — Weed Rap, Reggae, Rock, Country, Comedy Music</image:caption>
+    </image:image>
+    <video:video>
+      <video:thumbnail_loc>https://img.youtube.com/vi/AauUuLgKhwU/maxresdefault.jpg</video:thumbnail_loc>
+      <video:title>The Ras Box — Featured Video</video:title>
+      <video:description>Lead drop from The Ras Box featuring high-vibe reggae rap energy and uncensored creativity.</video:description>
+      <video:content_loc>https://www.youtube.com/watch?v=AauUuLgKhwU</video:content_loc>
+      <video:player_loc>https://www.youtube.com/embed/AauUuLgKhwU</video:player_loc>
+      <video:publication_date>2025-01-01</video:publication_date>
+    </video:video>
+    <video:video>
+      <video:thumbnail_loc>https://img.youtube.com/vi/0twKQHXB7XI/maxresdefault.jpg</video:thumbnail_loc>
+      <video:title>The Ras Box — New Drop</video:title>
+      <video:description>New single from The Ras Box. Comedy music, reggae rap, and uncensored creativity in one release.</video:description>
+      <video:content_loc>https://www.youtube.com/watch?v=0twKQHXB7XI</video:content_loc>
+      <video:player_loc>https://www.youtube.com/embed/0twKQHXB7XI</video:player_loc>
+      <video:publication_date>2025-01-01</video:publication_date>
+    </video:video>
+    <video:video>
+      <video:thumbnail_loc>https://img.youtube.com/vi/qS_1MeV-swQ/maxresdefault.jpg</video:thumbnail_loc>
+      <video:title>JoshSong2 3a — Genre Bend | The Ras Box</video:title>
+      <video:description>Reggae, rap, country, rock, and satire stacked into one unpredictable sound by The Ras Box.</video:description>
+      <video:content_loc>https://www.youtube.com/watch?v=qS_1MeV-swQ</video:content_loc>
+      <video:player_loc>https://www.youtube.com/embed/qS_1MeV-swQ</video:player_loc>
+      <video:publication_date>2025-01-01</video:publication_date>
+    </video:video>
+    <video:video>
+      <video:thumbnail_loc>https://img.youtube.com/vi/3XVAxThLZPE/maxresdefault.jpg</video:thumbnail_loc>
+      <video:title>Relaxing Smoking Herb Metal | The Ras Box</video:title>
+      <video:description>Heavy riffs meet high vibes in this herb-laced metal drop from The Ras Box.</video:description>
+      <video:content_loc>https://www.youtube.com/watch?v=3XVAxThLZPE</video:content_loc>
+      <video:player_loc>https://www.youtube.com/embed/3XVAxThLZPE</video:player_loc>
+      <video:publication_date>2025-01-01</video:publication_date>
+    </video:video>
+    <video:video>
+      <video:thumbnail_loc>https://img.youtube.com/vi/agkTfWuaqtg/maxresdefault.jpg</video:thumbnail_loc>
+      <video:title>Just Relaxing Smoking Herb Reggae | The Ras Box</video:title>
+      <video:description>Smooth reggae version of the herb anthem from The Ras Box. Laid back, locked in, and rolling.</video:description>
+      <video:content_loc>https://www.youtube.com/watch?v=agkTfWuaqtg</video:content_loc>
+      <video:player_loc>https://www.youtube.com/embed/agkTfWuaqtg</video:player_loc>
+      <video:publication_date>2025-01-01</video:publication_date>
+    </video:video>
+    <video:video>
+      <video:thumbnail_loc>https://img.youtube.com/vi/6QDsxGIVSwQ/maxresdefault.jpg</video:thumbnail_loc>
+      <video:title>Jam Rock | The Ras Box</video:title>
+      <video:description>A Stashbox reggae jam built for fans who want music with humor, attitude, hooks, and replay value.</video:description>
+      <video:content_loc>https://www.youtube.com/watch?v=6QDsxGIVSwQ</video:content_loc>
+      <video:player_loc>https://www.youtube.com/embed/6QDsxGIVSwQ</video:player_loc>
+      <video:publication_date>2025-01-01</video:publication_date>
+    </video:video>
+  </url>
+
+</urlset>
